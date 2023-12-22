@@ -19,10 +19,8 @@ public class UserEntity {
 
     private String name;
 
-    @NotBlank(message = "Email is Required")
     private String email;
 
-    @NotBlank(message = "Password is Required")
     private String password;
 
     private String about;

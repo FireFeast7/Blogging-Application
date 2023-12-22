@@ -1,4 +1,4 @@
-package com.blogging.blogappapis.exceptions;
+package com.blogging.blogappapis.exceptions.all;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

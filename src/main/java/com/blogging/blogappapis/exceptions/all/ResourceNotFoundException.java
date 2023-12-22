@@ -1,4 +1,4 @@
-package com.blogging.blogappapis.exceptions;
+package com.blogging.blogappapis.exceptions.all;
 
 public class ResourceNotFoundException extends RuntimeException{
 

@@ -1,6 +1,7 @@
 package com.blogging.blogappapis.services;
 
 import com.blogging.blogappapis.entities.UserEntity;
+import com.blogging.blogappapis.exceptions.GlobalExceptionHandler;
 import com.blogging.blogappapis.payloads.UserDto;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Service;

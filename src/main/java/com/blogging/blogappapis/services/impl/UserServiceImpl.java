@@ -1,14 +1,12 @@
 package com.blogging.blogappapis.services.impl;
 
 import com.blogging.blogappapis.entities.UserEntity;
+import com.blogging.blogappapis.exceptions.GlobalExceptionHandler;
 import com.blogging.blogappapis.mapper.Mapper;
-import com.blogging.blogappapis.mapper.impl.UserMapperImpl;
 import com.blogging.blogappapis.payloads.UserDto;
-import com.blogging.blogappapis.exceptions.ResourceNotFoundException;
+import com.blogging.blogappapis.exceptions.all.ResourceNotFoundException;
 import com.blogging.blogappapis.repositories.UserRepository;
 import com.blogging.blogappapis.services.UserService;
-import org.apache.catalina.User;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -26,9 +24,10 @@ public class UserServiceImpl implements UserService {
         this.userMapper = userMapper;
     }
     @Override
-    public UserDto createUser(UserDto userDto) {
+    public UserDto createUser(UserDto userDto)  {
         UserEntity userEntity = this.DTOToUser(userDto);
         UserEntity savedUserEntity = userRepository.save(userEntity);
+
         return this.UserToDTO(savedUserEntity);
     }
 

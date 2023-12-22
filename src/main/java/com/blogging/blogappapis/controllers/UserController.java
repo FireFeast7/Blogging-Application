@@ -1,6 +1,7 @@
 package com.blogging.blogappapis.controllers;
 
 import com.blogging.blogappapis.entities.UserEntity;
+import com.blogging.blogappapis.exceptions.GlobalExceptionHandler;
 import com.blogging.blogappapis.payloads.UserDto;
 import com.blogging.blogappapis.services.UserService;
 import jakarta.validation.Valid;
@@ -25,9 +26,9 @@ public class UserController {
     }
 
     @PostMapping(path = "/")
-    private ResponseEntity<UserDto> createUser(@Validated
+    private ResponseEntity<UserDto> createUser(@Valid
             @RequestBody UserDto userDto
-    ){
+    )  {
         UserDto createdUserDto = userService.createUser(userDto);
         return new ResponseEntity<>(createdUserDto,HttpStatus.CREATED);
     }
@@ -39,6 +40,7 @@ public class UserController {
 
    @PutMapping(path = "/{userId}")
     private ResponseEntity<UserDto> getUpdatedUser(
+            @Valid
             @PathVariable("userId") Integer userId,
             @RequestBody UserDto userDto
    ){
