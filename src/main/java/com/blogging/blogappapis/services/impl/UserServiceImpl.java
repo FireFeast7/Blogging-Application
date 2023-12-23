@@ -34,11 +34,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto UpdateUser(UserDto userDto, Integer id) {
         UserEntity userEntity = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("USER","id",id));
-        userEntity.setName(userDto.getName());
-        userEntity.setAbout(userDto.getAbout());
-        userEntity.setPassword(userDto.getPassword());
-        userEntity.setEmail(userDto.getEmail());
-        UserEntity updatedUser = userRepository.save(userEntity);
+//        userEntity.setName(userDto.getName());
+//        userEntity.setAbout(userDto.getAbout());
+//        userEntity.setPassword(userDto.getPassword());
+//        userEntity.setEmail(userDto.getEmail());
+        UserEntity savedUserEntity = userMapper.mapTo(userDto);
+        UserEntity updatedUser = userRepository.save(savedUserEntity);
         return this.UserToDTO(updatedUser);
     }
 
